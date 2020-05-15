@@ -53,6 +53,7 @@ dependencies {
 
     // Dependency injection with dagger
     implementation "com.google.dagger:dagger:$version_dagger"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt "com.google.dagger:dagger-compiler:$version_dagger"
 
     // Retrofit for networking and its converter plus call factories

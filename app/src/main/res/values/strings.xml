@@ -1,3 +1,25 @@
 <resources>
+
+    // Global Strings
+    // ***
     <string name="app_name">PoemPre</string>
+
+    // top_level_navigation_graph
+    // ***
+    // labels of destinations
+    <string name="label_splash_screen_fragment_top_level_navigation_graph">splash_screen_fragment</string>
+
+    // authentication_navigation_graph
+    // ***
+    // labels of destinations
+
+    // SplashScreenFragment
+    // ***
+    // ImageView's content description
+    <string name="content_description_app_logo_splash_screen_fragment">App Logo Splash Screen Fragment</string>
+    <string name="content_description_no_internet_connection_image_splash_screen_fragment">No internet connection image Splash Screen Fragment</string>
+
+    // Strings
+    <string name="string_no_internet_connection_splash_screen_fragment">No internet connection</string>
+
 </resources>

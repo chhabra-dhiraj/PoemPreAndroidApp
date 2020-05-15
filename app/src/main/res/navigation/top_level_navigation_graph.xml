@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/top_level_navigation_graph.xml"
+    app:startDestination="@id/splashScreenFragment">
+
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="io.github.chhabra_dhiraj.poempre.ui.main.SplashScreenFragment"
+        android:label="@string/label_splash_screen_fragment_top_level_navigation_graph"
+        tools:layout="@layout/fragment_splash_screen" />
+</navigation>

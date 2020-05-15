@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_constraint_layout_splash_screen_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.SplashScreenFragment">
+
+    <ImageView
+        android:id="@+id/app_logo_image_view_splash_screen_fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/content_description_app_logo_splash_screen_fragment"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.53"
+        app:srcCompat="@drawable/ic_launcher_background" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar_splash_screen_fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/app_logo_image_view_splash_screen_fragment"
+        app:layout_constraintStart_toStartOf="@+id/app_logo_image_view_splash_screen_fragment"
+        app:layout_constraintTop_toBottomOf="@+id/app_logo_image_view_splash_screen_fragment" />
+
+    <ImageView
+        android:id="@+id/imgv_no_internet_connection_splash_screen_fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/content_description_no_internet_connection_image_splash_screen_fragment"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/app_logo_image_view_splash_screen_fragment"
+        app:layout_constraintStart_toStartOf="@+id/app_logo_image_view_splash_screen_fragment"
+        app:layout_constraintTop_toBottomOf="@+id/app_logo_image_view_splash_screen_fragment"
+        app:srcCompat="@drawable/ic_cloud_off_color_primary_48dp" />
+
+    <TextView
+        android:id="@+id/tv_no_internet_connection_splash_screen_fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_no_internet_connection_splash_screen_fragment"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imgv_no_internet_connection_splash_screen_fragment"
+        app:layout_constraintStart_toStartOf="@+id/imgv_no_internet_connection_splash_screen_fragment"
+        app:layout_constraintTop_toBottomOf="@+id/imgv_no_internet_connection_splash_screen_fragment"
+        app:layout_constraintVertical_bias="0.35000002" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
