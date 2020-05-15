@@ -1,0 +1,100 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+
+    defaultConfig {
+        applicationId "io.github.chhabra_dhiraj.poempre"
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$version_kotlin"
+
+    // Support libraries
+    implementation "androidx.appcompat:appcompat:$version_appcompat"
+    implementation "androidx.constraintlayout:constraintlayout:$version_constraint_layout"
+
+    // Android KTX
+    implementation "androidx.core:core-ktx:$version_core"
+
+    // Logging
+    implementation "com.jakewharton.timber:timber:$version_timber"
+
+    // Dependency injection with dagger
+    implementation "com.google.dagger:dagger:$version_dagger"
+    kapt "com.google.dagger:dagger-compiler:$version_dagger"
+
+    // Retrofit for networking and its converter plus call factories
+    implementation "com.squareup.retrofit2:retrofit:$version_retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$version_retrofit"
+
+    // Jetpack Navigation with Kotlin
+    implementation "androidx.navigation:navigation-fragment-ktx:$version_jetpack_navigation"
+    implementation "androidx.navigation:navigation-ui-ktx:$version_jetpack_navigation"
+
+    // Jetpack Navigation with Dynamic Feature Module Support
+    implementation "androidx.navigation:navigation-dynamic-features-fragment:$version_jetpack_navigation"
+
+    // Fragments with Kotlin
+    implementation "androidx.fragment:fragment-ktx:$version_fragment"
+
+    // Paging or swiping views with View Pager 2
+    implementation "androidx.viewpager2:viewpager2:$version_viewpager2"
+
+    /* For using material design built in components for android
+       like TabLayout, MaterialEditText etc */
+    implementation "com.google.android.material:material:$version_material_design"
+
+    // Legacy Support for android app
+    implementation "androidx.legacy:legacy-support-v4:$version_legacy_support"
+
+    // Recycler View
+    implementation "androidx.recyclerview:recyclerview:$version_recycler_view"
+
+    // Preference Screen
+    implementation "androidx.preference:preference:$version_preference"
+
+    // Unit test
+    testImplementation "junit:junit:$version_test_junit"
+
+    // Basic Android Framework Test
+    androidTestImplementation "androidx.test.ext:junit:$version_test_android_junit"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$version_test_android_espresso_core"
+
+    // Jetpack Navigation Android Framework Test
+    androidTestImplementation "androidx.navigation:navigation-testing:$version_jetpack_navigation"
+
+    // Testing Fragments in Isolation
+    debugImplementation "androidx.fragment:fragment-testing:$version_fragment"
+}
