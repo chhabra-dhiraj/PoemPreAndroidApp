@@ -12,6 +12,26 @@
     // authentication_navigation_graph
     // ***
     // labels of destinations
+    <string name="label_email_input_screen_fragment_authentication_navigation_graph">email_input_screen_fragment</string>
+    <string name="label_password_input_screen_fragment_authentication_navigation_graph">password_input_screen_fragment</string>
+    <string name="label_user_details_input_screen_fragment_authentication_navigation_graph">user_details_input_screen_fragment</string>
+    <string name="label_otp_input_screen_fragment_authentication_navigation_graph">otp_input_screen_fragment</string>
+    <string name="label_change_pass_screen_fragment_authentication_navigation_graph">change_pass_screen_fragment</string>
+    <string name="label_profile_image_uploading_screen_fragment_authentication_navigation_graph">profile_image_uploading_screen_fragment</string>
+
+    // main_content_navigation_graph
+    // ***
+    // labels of destinations
+    <string name="label_home_screen_fragment_main_content_navigation_graph">home_screen_fragment</string>
+    <string name="label_about_us_screen_fragment_main_content_navigation_graph">about_us_screen_fragment</string>
+    <string name="label_view_poem_screen_fragment_main_content_navigation_graph">view_poem_screen_fragment</string>
+    <string name="label_edit_poem_screen_fragment_main_content_navigation_graph">edit_poem_screen_fragment</string>
+    <string name="label_new_poem_screen_fragment_main_content_navigation_graph">new_poem_screen_fragment</string>
+    <string name="label_change_pass_internal_screen_fragment_main_content_navigation_graph">change_pass_internal_screen_fragment</string>
+    <string name="label_edit_profile_screen_fragment_main_content_navigation_graph">edit_profile_screen_fragment</string>
+    <string name="label_profile_screen_fragment_main_content_navigation_graph">profile_screen_fragment</string>
+    <string name="label_search_screen_fragment_main_content_navigation_graph">search_screen_fragment</string>
+
 
     // SplashScreenFragment
     // ***
