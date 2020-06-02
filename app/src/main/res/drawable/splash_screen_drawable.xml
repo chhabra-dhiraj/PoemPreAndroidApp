@@ -9,7 +9,7 @@
 
     <!-- Your product logo - 144dp color version of your app icon -->
     <item
-        android:drawable="@drawable/ic_launcher_background"
+        android:drawable="@drawable/ic_blur_on_color_primary_144dp"
         android:gravity="center" />
 
 </layer-list>

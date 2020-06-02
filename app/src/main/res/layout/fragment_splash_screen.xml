@@ -9,15 +9,15 @@
 
     <ImageView
         android:id="@+id/app_logo_image_view_splash_screen_fragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="144dp"
+        android:layout_height="144dp"
         android:contentDescription="@string/content_description_app_logo_splash_screen_fragment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.53"
-        app:srcCompat="@drawable/ic_launcher_background" />
+        app:srcCompat="@drawable/ic_blur_on_color_primary_24dp" />
 
     <ProgressBar
         android:id="@+id/progress_bar_splash_screen_fragment"
@@ -45,6 +45,32 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/string_no_internet_connection_splash_screen_fragment"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imgv_no_internet_connection_splash_screen_fragment"
+        app:layout_constraintStart_toStartOf="@+id/imgv_no_internet_connection_splash_screen_fragment"
+        app:layout_constraintTop_toBottomOf="@+id/imgv_no_internet_connection_splash_screen_fragment"
+        app:layout_constraintVertical_bias="0.35000002" />
+
+    <ImageView
+        android:id="@+id/imgv_sharedPref_error_splash_screen_fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/content_description_sharedPref_error_image_splash_screen_fragment"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/app_logo_image_view_splash_screen_fragment"
+        app:layout_constraintStart_toStartOf="@+id/app_logo_image_view_splash_screen_fragment"
+        app:layout_constraintTop_toBottomOf="@+id/app_logo_image_view_splash_screen_fragment"
+        app:srcCompat="@drawable/ic_error_outline_color_primary_48dp" />
+
+    <TextView
+        android:id="@+id/tv_sharedPref_error_splash_screen_fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/string_sharedPref_error_splash_screen_fragment"
         android:textColor="@color/colorPrimary"
         android:textStyle="bold"
         android:visibility="gone"

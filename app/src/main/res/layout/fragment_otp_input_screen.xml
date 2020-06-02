@@ -1,8 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.main.authentication.OtpInputScreenFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-</FrameLayout>
+    <data>
+
+        <variable
+            name="viewModel"
+            type="io.github.chhabra_dhiraj.poempre.viewmodels.AuthenticationViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.main.authentication.PasswordInputScreenFragment">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_otp_otp_input_screen_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="64dp"
+            android:layout_marginEnd="64dp"
+            android:hint="@string/hint_et_otp_input_otp_input_screen_fragment"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tiet_otp_otp_input_screen_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberPassword" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_submit_otp_input_screen_fragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/text_btn_submit_otp_input_screen_fragment"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/til_otp_otp_input_screen_fragment"
+            app:layout_constraintStart_toStartOf="@+id/til_otp_otp_input_screen_fragment"
+            app:layout_constraintTop_toBottomOf="@+id/til_otp_otp_input_screen_fragment"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_change_email_otp_input_screen_fragment"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_btn_change_email_otp_input_screen_fragment"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="@+id/til_otp_otp_input_screen_fragment"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/til_otp_otp_input_screen_fragment"
+            app:layout_constraintTop_toBottomOf="@+id/til_otp_otp_input_screen_fragment" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

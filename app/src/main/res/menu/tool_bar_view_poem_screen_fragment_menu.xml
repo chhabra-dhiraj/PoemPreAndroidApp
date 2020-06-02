@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/editPoemScreenFragment"
+        android:contentDescription="@string/content_description_edit_poem_screen_fragment_tool_bar_view_poem_screen_fragment"
+        android:icon="@drawable/ic_edit_white_24dp"
+        android:title="@string/title_edit_poem_screen_fragment_tool_bar_view_poem_screen_fragment" />
+
+    <item
+        android:id="@+id/delete"
+        android:contentDescription="@string/content_description_delete_edit_poem_screen_fragment_tool_bar_view_poem_screen_fragment"
+        android:icon="@drawable/ic_delete_white_24dp"
+        android:title="@string/title_delete_edit_poem_screen_fragment_tool_bar_view_poem_screen_fragment" />
+
+</menu>

@@ -13,9 +13,6 @@
         <action
             android:id="@+id/action_homeScreenFragment_to_viewPoemFragment"
             app:destination="@id/viewPoemScreenFragment" />
-        <action
-            android:id="@+id/action_homeScreenFragment_to_aboutUsScreenFragment"
-            app:destination="@id/aboutUsScreenFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchScreenFragment"
@@ -25,16 +22,6 @@
         <action
             android:id="@+id/action_searchScreenFragment_to_viewPoemFragment"
             app:destination="@id/viewPoemScreenFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/newPoemScreenFragment"
-        android:name="io.github.chhabra_dhiraj.poempre.ui.main.maincontent.newPoem.NewPoemScreenFragment"
-        android:label="@string/label_new_poem_screen_fragment_main_content_navigation_graph"
-        tools:layout="@layout/fragment_new_poem_screen">
-        <action
-            android:id="@+id/action_newPoetryFragment_to_viewPoemFragment"
-            app:destination="@id/viewPoemScreenFragment"
-            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/profileScreenFragment"
@@ -56,6 +43,9 @@
         <action
             android:id="@+id/action_viewPoemFragment_to_editPoemScreenFragment"
             app:destination="@id/editPoemScreenFragment" />
+        <argument
+            android:name="poem"
+            app:argType="io.github.chhabra_dhiraj.poempre.domain.Poem" />
     </fragment>
     <fragment
         android:id="@+id/editPoemScreenFragment"
@@ -65,8 +55,17 @@
         <action
             android:id="@+id/action_editPoemScreenFragment_to_viewPoemFragment2"
             app:destination="@id/viewPoemScreenFragment"
-            app:popUpTo="@id/viewPoemScreenFragment"
+            app:popUpTo="@id/editPoemScreenFragment"
             app:popUpToInclusive="true" />
+        <argument
+            android:name="poem"
+            app:nullable="true"
+            android:defaultValue="@null"
+            app:argType="io.github.chhabra_dhiraj.poempre.domain.Poem" />
+        <argument
+            android:name="plus"
+            android:defaultValue="true"
+            app:argType="boolean" />
     </fragment>
     <fragment
         android:id="@+id/editProfileScreenFragment"
