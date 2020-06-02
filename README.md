@@ -31,7 +31,6 @@ This is an Android application for Poem creation by a user with some suggestions
 </ul>
 
 ## Libraries
-## Tech Stack
 <ul>
   <li>Retrofit 2</li>
   <li>gson</li>
