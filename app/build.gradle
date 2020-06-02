@@ -35,6 +35,13 @@ android {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 
+    viewBinding {
+        enabled = true
+    }
+
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -53,11 +60,18 @@ dependencies {
 
     // Dependency injection with dagger
     implementation "com.google.dagger:dagger:$version_dagger"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
     kapt "com.google.dagger:dagger-compiler:$version_dagger"
 
     // Retrofit for networking and its converter plus call factories
     implementation "com.squareup.retrofit2:retrofit:$version_retrofit"
     implementation "com.squareup.retrofit2:converter-gson:$version_retrofit"
+
+    // OkHttp for adding interceptors
+    implementation "com.squareup.okhttp3:okhttp:$version_okhttp3"
+    implementation "com.squareup.okhttp3:logging-interceptor:$version_okhttp3"
 
     // Jetpack Navigation with Kotlin
     implementation "androidx.navigation:navigation-fragment-ktx:$version_jetpack_navigation"

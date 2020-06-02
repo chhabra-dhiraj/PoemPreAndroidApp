@@ -1,3 +1,123 @@
 <resources>
+
+    // Global Strings
+    // ***
     <string name="app_name">PoemPre</string>
+
+    // top_level_navigation_graph
+    // ***
+    // labels of destinations
+    <string name="label_splash_screen_fragment_top_level_navigation_graph">splash_screen_fragment</string>
+
+    // authentication_navigation_graph
+    // ***
+    // labels of destinations
+    <string name="label_email_input_screen_fragment_authentication_navigation_graph">email_input_screen_fragment</string>
+    <string name="label_password_input_screen_fragment_authentication_navigation_graph">password_input_screen_fragment</string>
+    <string name="label_user_details_input_screen_fragment_authentication_navigation_graph">user_details_input_screen_fragment</string>
+    <string name="label_otp_input_screen_fragment_authentication_navigation_graph">otp_input_screen_fragment</string>
+    <string name="label_change_pass_screen_fragment_authentication_navigation_graph">change_pass_screen_fragment</string>
+    <string name="label_profile_image_uploading_screen_fragment_authentication_navigation_graph">profile_image_uploading_screen_fragment</string>
+
+    // main_content_navigation_graph
+    // ***
+    // labels of destinations
+    <string name="label_home_screen_fragment_main_content_navigation_graph">home_screen_fragment</string>
+    <string name="label_about_us_screen_fragment_main_content_navigation_graph">about_us_screen_fragment</string>
+    <string name="label_view_poem_screen_fragment_main_content_navigation_graph">view_poem_screen_fragment</string>
+    <string name="label_edit_poem_screen_fragment_main_content_navigation_graph">edit_poem_screen_fragment</string>
+    <string name="label_new_poem_screen_fragment_main_content_navigation_graph">new_poem_screen_fragment</string>
+    <string name="label_change_pass_internal_screen_fragment_main_content_navigation_graph">change_pass_internal_screen_fragment</string>
+    <string name="label_edit_profile_screen_fragment_main_content_navigation_graph">edit_profile_screen_fragment</string>
+    <string name="label_profile_screen_fragment_main_content_navigation_graph">profile_screen_fragment</string>
+    <string name="label_search_screen_fragment_main_content_navigation_graph">search_screen_fragment</string>
+
+
+    // SplashScreenFragment
+    // ***
+    // ImageView's content description
+    <string name="content_description_app_logo_splash_screen_fragment">App Logo Splash Screen Fragment</string>
+    <string name="content_description_no_internet_connection_image_splash_screen_fragment">No internet connection image Splash Screen Fragment</string>
+    <string name="content_description_sharedPref_error_image_splash_screen_fragment">Sorry…Please restart the app image Splash Screen Fragment</string>
+
+    // Strings
+    <string name="string_no_internet_connection_splash_screen_fragment">No internet connection</string>
+    <string name="string_sharedPref_error_splash_screen_fragment">Sorry…Please restart the app</string>
+
+    // EmailInputScreenFragment
+    // ***
+    // Strings
+    <string name="hint_et_email_input_email_input_screen_fragment">Enter your email</string>
+    <string name="text_btn_next_email_input_screen_fragment">Next</string>
+
+    // PasswordInputScreenFragment
+    // ***
+    // Strings
+    <string name="hint_et_password_input_password_input_screen_fragment">Enter Password</string>
+    <string name="text_btn_submit_password_input_screen_fragment">Submit</string>
+    <string name="text_btn_forgot_password_input_screen_fragment">Forgot Password?</string>
+
+    // OtpInputScreenFragment
+    // ***
+    // Strings
+    <string name="hint_et_otp_input_otp_input_screen_fragment">Enter OTP</string>
+    <string name="text_btn_submit_otp_input_screen_fragment">Submit</string>
+    <string name="text_btn_change_email_otp_input_screen_fragment">Change Email?</string>
+
+    // ChangePassScreenFragment
+    // ***
+    // Strings
+    <string name="hint_et_new_password_change_pass_screen_fragment">Enter your new password</string>
+    <string name="hint_et_confirm_password_change_pass_screen_fragment">Confirm new password</string>
+    <string name="text_btn_submit_change_pass_screen_fragment">Submit</string>
+
+    // UserDetailsInputScreenFragment
+    // ***
+    // Strings
+    <string name="hint_et_first_name_user_details_input_screen_fragment">Enter your first name</string>
+    <string name="hint_et_last_name_user_details_input_screen_fragment">Enter your last name</string>
+    <string name="hint_et_password_user_details_input_screen_fragment">Enter your password</string>
+    <string name="hint_et_confirm_password_user_details_input_screen_fragment">Confirm your password</string>
+    <string name="text_btn_submit_user_details_input_screen_fragment">Submit</string>
+
+    // HomeScreenFragment
+    // ***
+    // Strings
+
+    // ViewPoemScreenFragment
+    // ***
+    // Strings
+
+
+    // Bottom Navigation Main Content
+    // ***
+    // Strings
+    <string name="content_description_home_screen_fragment_bottom_nav_main_content_menu">Home</string>
+    <string name="title_home_screen_fragment_bottom_nav_main_content_menu">Home</string>
+    <string name="content_description_search_screen_fragment_bottom_nav_main_content_menu">Search</string>
+    <string name="title_search_screen_fragment_bottom_nav_main_content_menu">Search</string>
+    <string name="content_description_new_poem_screen_fragment_bottom_nav_main_content_menu">Add New Poem</string>
+    <string name="title_new_poem_screen_fragment_bottom_nav_main_content_menu">Add New Poem</string>
+    <string name="content_description_profile_screen_fragment_bottom_nav_main_content_menu">Profile</string>
+    <string name="title_profile_screen_fragment_bottom_nav_main_content_menu">Profile</string>
+
+    // Tool Bar Main Content Activity
+    // ***
+    // Strings
+    <string name="title_about_us_screen_fragment_tool_bar_main_content_menu">About Us</string>
+    <string name="content_description_about_us_screen_fragment_tool_bar_main_content_menu">About Us</string>
+    <string name="title_logout_tool_bar_main_content_menu">Logout</string>
+    <string name="content_description_logout_tool_bar_main_content_menu">Logout</string>
+    <string name="title_delete_edit_poem_screen_fragment_tool_bar_view_poem_screen_fragment">Delete</string>
+    <string name="content_description_delete_edit_poem_screen_fragment_tool_bar_view_poem_screen_fragment">Delete</string>
+    <string name="title_edit_poem_screen_fragment_tool_bar_view_poem_screen_fragment">Edit</string>
+    <string name="content_description_edit_poem_screen_fragment_tool_bar_view_poem_screen_fragment">Edit</string>
+    <string name="content_description_edit_title_tool_bar_edit_poem_screen_fragment">Edit Title</string>
+    <string name="title_edit_title_tool_bar_edit_poem_screen_fragment">Edit Title</string>
+    <string name="content_description_edit_genre_tool_bar_edit_poem_screen_fragment">Edit Genre</string>
+    <string name="title_edit_genre_tool_bar_edit_poem_screen_fragment">Edit Genre</string>
+    <string name="extended_fab_label_edit_poem_screen_fragment">Suggestions</string>
+
+
+    <string name="insert">Insert</string>
 </resources>

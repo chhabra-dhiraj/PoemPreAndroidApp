@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeScreenFragment"
+        android:contentDescription="@string/content_description_home_screen_fragment_bottom_nav_main_content_menu"
+        android:icon="@drawable/ic_home_color_primary_24dp"
+        android:title="@string/title_home_screen_fragment_bottom_nav_main_content_menu" />
+
+    <item
+        android:id="@+id/editPoemScreenFragment"
+        android:contentDescription="@string/content_description_new_poem_screen_fragment_bottom_nav_main_content_menu"
+        android:icon="@drawable/ic_add_box_color_primary_24dp"
+        android:title="@string/title_new_poem_screen_fragment_bottom_nav_main_content_menu" />
+
+    <item
+        android:id="@+id/profileScreenFragment"
+        android:contentDescription="@string/content_description_profile_screen_fragment_bottom_nav_main_content_menu"
+        android:icon="@drawable/ic_person_outline_color_primary_24dp"
+        android:title="@string/title_profile_screen_fragment_bottom_nav_main_content_menu" />
+
+</menu>

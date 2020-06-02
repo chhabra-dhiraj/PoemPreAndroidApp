@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_content_navigation_graph"
+    app:startDestination="@id/homeScreenFragment">
+
+    <fragment
+        android:id="@+id/homeScreenFragment"
+        android:name="io.github.chhabra_dhiraj.poempre.ui.main.maincontent.home.HomeScreenFragment"
+        android:label="@string/label_home_screen_fragment_main_content_navigation_graph"
+        tools:layout="@layout/fragment_home_screen">
+        <action
+            android:id="@+id/action_homeScreenFragment_to_viewPoemFragment"
+            app:destination="@id/viewPoemScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchScreenFragment"
+        android:name="io.github.chhabra_dhiraj.poempre.ui.main.maincontent.searchPoem.SearchScreenFragment"
+        android:label="@string/label_search_screen_fragment_main_content_navigation_graph"
+        tools:layout="@layout/fragment_search_screen">
+        <action
+            android:id="@+id/action_searchScreenFragment_to_viewPoemFragment"
+            app:destination="@id/viewPoemScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileScreenFragment"
+        android:name="io.github.chhabra_dhiraj.poempre.ui.main.maincontent.profile.ProfileScreenFragment"
+        android:label="@string/label_profile_screen_fragment_main_content_navigation_graph"
+        tools:layout="@layout/fragment_profile_screen">
+        <action
+            android:id="@+id/action_profileScreenFragment_to_editProfileScreenFragment"
+            app:destination="@id/editProfileScreenFragment" />
+        <action
+            android:id="@+id/action_profileScreenFragment_to_changePassInternalScreen"
+            app:destination="@id/changePassInternalScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewPoemScreenFragment"
+        android:name="io.github.chhabra_dhiraj.poempre.ui.main.maincontent.home.ViewPoemScreenFragment"
+        android:label="@string/label_view_poem_screen_fragment_main_content_navigation_graph"
+        tools:layout="@layout/fragment_view_poem_screen">
+        <action
+            android:id="@+id/action_viewPoemFragment_to_editPoemScreenFragment"
+            app:destination="@id/editPoemScreenFragment" />
+        <argument
+            android:name="poem"
+            app:argType="io.github.chhabra_dhiraj.poempre.domain.Poem" />
+    </fragment>
+    <fragment
+        android:id="@+id/editPoemScreenFragment"
+        android:name="io.github.chhabra_dhiraj.poempre.ui.main.maincontent.home.EditPoemScreenFragment"
+        android:label="@string/label_edit_poem_screen_fragment_main_content_navigation_graph"
+        tools:layout="@layout/fragment_edit_poem_screen">
+        <action
+            android:id="@+id/action_editPoemScreenFragment_to_viewPoemFragment2"
+            app:destination="@id/viewPoemScreenFragment"
+            app:popUpTo="@id/editPoemScreenFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="poem"
+            app:nullable="true"
+            android:defaultValue="@null"
+            app:argType="io.github.chhabra_dhiraj.poempre.domain.Poem" />
+        <argument
+            android:name="plus"
+            android:defaultValue="true"
+            app:argType="boolean" />
+    </fragment>
+    <fragment
+        android:id="@+id/editProfileScreenFragment"
+        android:name="io.github.chhabra_dhiraj.poempre.ui.main.maincontent.profile.EditProfileScreenFragment"
+        android:label="@string/label_edit_profile_screen_fragment_main_content_navigation_graph"
+        tools:layout="@layout/fragment_edit_profile_screen" />
+    <fragment
+        android:id="@+id/aboutUsScreenFragment"
+        android:name="io.github.chhabra_dhiraj.poempre.ui.main.maincontent.home.AboutUsScreenFragment"
+        android:label="@string/label_about_us_screen_fragment_main_content_navigation_graph"
+        tools:layout="@layout/fragment_about_us_screen" />
+    <fragment
+        android:id="@+id/changePassInternalScreenFragment"
+        android:name="io.github.chhabra_dhiraj.poempre.ui.main.maincontent.profile.ChangePassInternalScreenFragment"
+        android:label="@string/label_change_pass_internal_screen_fragment_main_content_navigation_graph"
+        tools:layout="@layout/fragment_change_pass_internal_screen" />
+</navigation>

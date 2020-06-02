@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:context=".ui.main.maincontent.home.ViewPoemScreenFragment">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/app_bar_layout_edit_poem_screen_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/tall_toolbar_height_main_content_container_activity">
+
+                <com.google.android.material.appbar.CollapsingToolbarLayout
+                    android:id="@+id/collapsing_toolbar_layout_edit_poem_screen_fragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:contentScrim="?attr/colorPrimary"
+                    app:expandedTitleGravity="top"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
+
+                    <androidx.appcompat.widget.Toolbar
+                        android:id="@+id/toolbar_edit_poem_screen_fragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        app:layout_collapseMode="pin"
+                        app:menu="@menu/tool_bar_edit_poem_screen_fragment_menu">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/title_edit_poem_screen_fragment"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:layout_marginBottom="4dp"
+                                android:textColor="@android:color/black"
+                                android:textSize="18sp"
+                                tools:text="Tree Triggering" />
+
+                            <TextView
+                                android:id="@+id/genre_edit_poem_screen_fragment"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="4dp"
+                                android:text="Mythology"
+                                android:textSize="12sp" />
+
+                        </LinearLayout>
+
+                    </androidx.appcompat.widget.Toolbar>
+
+                </com.google.android.material.appbar.CollapsingToolbarLayout>
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <EditText
+                android:id="@+id/body_edit_poem_screen_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="150dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:padding="0dp"
+                android:textSize="24sp"
+                tools:text="" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_gravity="end"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/extended_fab_suggestions_edit_poem_screen_fragment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:contentDescription="@string/extended_fab_label_edit_poem_screen_fragment"
+                android:text="@string/extended_fab_label_edit_poem_screen_fragment"
+                app:backgroundTint="@color/colorPrimary"
+                app:icon="@drawable/ic_star_white_24dp" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/floating_action_button_insert_edit_poem_screen_fragment"
+                android:layout_width="wrap_content"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:backgroundTint="@color/colorPrimary"
+                app:srcCompat="@drawable/ic_add_black_24dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_layout_suggestions_edit_poem_screen_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@android:color/white"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/floating_action_button_right_edit_poem_screen_fragment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:backgroundTint="@color/colorPrimary"
+                app:fabSize="mini"
+                app:srcCompat="@drawable/ic_keyboard_arrow_left_white_24dp" />
+
+            <TextView
+                android:id="@+id/tv_suggestions_edit_poem_screen_fragment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_weight="1"
+                tools:text="" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/floating_action_button_left_edit_poem_screen_fragment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:backgroundTint="@color/colorPrimary"
+                app:fabSize="mini"
+                app:srcCompat="@drawable/ic_keyboard_arrow_right_white_24dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
