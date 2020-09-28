@@ -51,3 +51,7 @@ data class SuggestionApiResponse(
     val message: String,
     val sentencesList: List<Sentence>?
 )
+
+data class LogoutApiResponse(
+    val message: String
+)

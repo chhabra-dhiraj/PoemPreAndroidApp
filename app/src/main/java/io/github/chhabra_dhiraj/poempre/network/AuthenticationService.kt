@@ -41,5 +41,5 @@ interface AuthenticationService {
     ): ChangePassApiResponse
 
     @GET("logout")
-    suspend fun logout(): String
+    suspend fun logout(): LogoutApiResponse
 }

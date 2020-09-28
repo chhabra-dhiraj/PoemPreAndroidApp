@@ -39,7 +39,7 @@ object Network {
 
     // Configure retrofit to parse JSON and use coroutines
     private val retrofit = Retrofit.Builder()
-        .baseUrl("http://192.168.0.11:5000/api/")
+        .baseUrl("http://192.168.0.6:5000/api/")
         .client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
