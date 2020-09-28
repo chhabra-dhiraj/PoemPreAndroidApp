@@ -6,6 +6,7 @@ import okhttp3.Request
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import timber.log.Timber
 import java.util.concurrent.TimeUnit
 
 object Network {
@@ -22,16 +23,19 @@ object Network {
 
             val sessionId = SharedPreferencesManager.instance!!.sessionId
 
+            Timber.e("dhiraj chh test major project sessionId: $sessionId")
             val request: Request = if (sessionId != null) {
                 chain.request()
                     .newBuilder()
-                    .addHeader("Cookie: ", "connect.sid=$sessionId")
+                    .addHeader("Cookie", "connect.sid=$sessionId")
                     .build()
             } else {
                 chain.request()
                     .newBuilder()
                     .build()
             }
+
+            Timber.e("request session dhiraj: $request")
 
             chain.proceed(request)
         }

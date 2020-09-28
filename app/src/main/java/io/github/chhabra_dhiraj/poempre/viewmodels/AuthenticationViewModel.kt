@@ -10,6 +10,7 @@ import io.github.chhabra_dhiraj.poempre.repository.UserRepository
 import io.github.chhabra_dhiraj.poempre.utils.SharedPreferencesManager
 import kotlinx.coroutines.*
 import retrofit2.HttpException
+import timber.log.Timber
 
 class AuthenticationViewModel : ViewModel() {
 
@@ -50,12 +51,15 @@ class AuthenticationViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 val loginApiResponse = authenticationRepository.login(email, password)
+
+                val sessionIdHeader = loginApiResponse.headers()["Set-Cookie"]?.substring(12)
+                Timber.e("sessionId: $sessionIdHeader")
                 SharedPreferencesManager.instance!!.apply {
-                    sessionId = loginApiResponse.sessionId
-                    userId = loginApiResponse.user.userId
-                    email = loginApiResponse.user.email
-                    firstName = loginApiResponse.user.firstName
-                    lastName = loginApiResponse.user.lastName
+                    sessionId = sessionIdHeader
+                    userId = loginApiResponse.body()?.user!!.userId
+                    email = loginApiResponse.body()?.user!!.email
+                    firstName = loginApiResponse.body()?.user!!.firstName
+                    lastName = loginApiResponse.body()?.user!!.lastName
                 }
                 withContext(Dispatchers.Main) {
                     _isLoginSuccessful.value = true

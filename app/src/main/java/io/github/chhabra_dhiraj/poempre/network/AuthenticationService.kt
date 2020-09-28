@@ -1,5 +1,6 @@
 package io.github.chhabra_dhiraj.poempre.network
 
+import retrofit2.Response
 import retrofit2.http.*
 
 interface AuthenticationService {
@@ -13,7 +14,7 @@ interface AuthenticationService {
     suspend fun login(
         @Field("email") email: String,
         @Field("password") password: String
-    ): LoginApiResponse
+    ): Response<LoginApiResponse>
 
     @FormUrlEncoded
     @POST("register")
