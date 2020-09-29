@@ -103,24 +103,37 @@ class EditPoemScreenFragment : Fragment(), EditGenreBottomModalSheetFragment.Scr
                 }
             }
 
-            viewModel.isUpdateSuccessful.observe(viewLifecycleOwner, Observer {
-                if (it) {
-                    findNavController().popBackStack(R.id.homeScreenFragment, false)
-                } else {
-                    Snackbar.make(binding.root, "Server Error", Snackbar.LENGTH_SHORT).show()
-                }
-            })
-
-            viewModel.isCreateSuccessful.observe(viewLifecycleOwner, Observer {
-                if (it) {
-                    findNavController().popBackStack(R.id.homeScreenFragment, false)
-                } else {
-                    Snackbar.make(binding.root, "Server Error", Snackbar.LENGTH_SHORT).show()
-                }
-            })
-
             return@setOnMenuItemClickListener true
         }
+
+
+        viewModel.isUpdateSuccessful.observe(viewLifecycleOwner, Observer {
+            if (it.peekContent()) {
+                if (it.getContentIfNotHandled() != null) {
+                    findNavController().popBackStack(R.id.homeScreenFragment, false)
+                }
+            } else {
+                if (it.getContentIfNotHandled() != null) {
+                    Snackbar.make(binding.root, "Server Error", Snackbar.LENGTH_SHORT).show()
+                }
+            }
+        })
+
+        viewModel.isCreateSuccessful.observe(viewLifecycleOwner, Observer {
+            if (it.peekContent()) {
+                if (it.getContentIfNotHandled() != null) {
+                    findNavController().popBackStack(R.id.homeScreenFragment, false)
+                }
+            } else {
+
+                if (it.peekContent()) {
+                    if (it.getContentIfNotHandled() != null) {
+                        Snackbar.make(binding.root, "Server Error", Snackbar.LENGTH_SHORT)
+                            .show()
+                    }
+                }
+            }
+        })
 
         binding.extendedFabSuggestionsEditPoemScreenFragment.setOnClickListener {
             val selectionEnd: Int = binding.bodyEditPoemScreenFragment.selectionEnd
@@ -158,17 +171,23 @@ class EditPoemScreenFragment : Fragment(), EditGenreBottomModalSheetFragment.Scr
             binding.bodyEditPoemScreenFragment.setSelection(binding.bodyEditPoemScreenFragment.text.length)
         }
 
-        viewModel.sentences.observe(viewLifecycleOwner, Observer {
+        viewModel.sentences.observe(viewLifecycleOwner, Observer
+        {
             if (it != null) {
                 if (it.isNotEmpty()) {
                     binding.floatingActionButtonInsertEditPoemScreenFragment.visibility =
                         View.VISIBLE
-                    binding.linearLayoutSuggestionsEditPoemScreenFragment.visibility = View.VISIBLE
+                    binding.linearLayoutSuggestionsEditPoemScreenFragment.visibility =
+                        View.VISIBLE
                     sentences = it
                     binding.tvSuggestionsEditPoemScreenFragment.text = sentences!![0].sentence
                     index = 0
                 } else {
-                    Snackbar.make(binding.root, "No similar sentences found", Snackbar.LENGTH_SHORT)
+                    Snackbar.make(
+                        binding.root,
+                        "No similar sentences found",
+                        Snackbar.LENGTH_SHORT
+                    )
                         .show()
                 }
             } else {

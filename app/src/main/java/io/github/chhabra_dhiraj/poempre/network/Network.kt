@@ -17,13 +17,14 @@ object Network {
     }
 
     private val okHttpClient = OkHttpClient.Builder().apply {
-        connectTimeout(20, TimeUnit.SECONDS)
+        readTimeout(300, TimeUnit.SECONDS)
+        connectTimeout(300, TimeUnit.SECONDS)
+        writeTimeout(300, TimeUnit.SECONDS)
         addInterceptor(httpLoggingInterceptor)
         addInterceptor { chain ->
 
             val sessionId = SharedPreferencesManager.instance!!.sessionId
 
-            Timber.e("dhiraj chh test major project sessionId: $sessionId")
             val request: Request = if (sessionId != null) {
                 chain.request()
                     .newBuilder()
@@ -34,8 +35,6 @@ object Network {
                     .newBuilder()
                     .build()
             }
-
-            Timber.e("request session dhiraj: $request")
 
             chain.proceed(request)
         }
