@@ -48,6 +48,7 @@ class HomeScreenFragment : Fragment() {
             if (poems == null || poems.isEmpty()) {
                 binding.progressBarHomeScreenFragment.visibility = View.GONE
                 binding.noPoemLayoutHomeScreenFragment.visibility = View.VISIBLE
+                binding.rvPoemHomeScreenFragment.visibility = View.GONE
             } else {
                 // submit list to recycler view adapter
                 homeScreenAdapter.submitList(poems)

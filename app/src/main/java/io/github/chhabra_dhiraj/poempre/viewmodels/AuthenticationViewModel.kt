@@ -54,12 +54,13 @@ class AuthenticationViewModel : ViewModel() {
 
                 val sessionIdHeader = loginApiResponse.headers()["Set-Cookie"]?.substring(12)
                 Timber.e("sessionId: $sessionIdHeader")
+                Timber.e("firstName: ${loginApiResponse.body()?.user?.firstname}")
                 SharedPreferencesManager.instance!!.apply {
                     sessionId = sessionIdHeader
                     userId = loginApiResponse.body()?.user!!.userId
                     email = loginApiResponse.body()?.user!!.email
-                    firstName = loginApiResponse.body()?.user!!.firstName
-                    lastName = loginApiResponse.body()?.user!!.lastName
+                    firstName = loginApiResponse.body()?.user!!.firstname
+                    lastName = loginApiResponse.body()?.user!!.lastname
                 }
                 withContext(Dispatchers.Main) {
                     _isLoginSuccessful.value = true
@@ -82,8 +83,8 @@ class AuthenticationViewModel : ViewModel() {
                     sessionId = registerApiResponse.sessionId
                     userId = registerApiResponse.user.userId
                     email = registerApiResponse.user.email
-                    this.firstName = registerApiResponse.user.firstName
-                    this.lastName = registerApiResponse.user.lastName
+                    this.firstName = registerApiResponse.user.firstname
+                    this.lastName = registerApiResponse.user.lastname
                 }
                 withContext(Dispatchers.Main) {
                     _isRegisterSuccessful.value = registerApiResponse
