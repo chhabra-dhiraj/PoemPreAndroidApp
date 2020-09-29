@@ -19,8 +19,9 @@
         <item name="android:background">@drawable/bottom_modal_sheet_shape_drawable</item>
     </style>
 
-    <style name="BaseBottomSheetDialog" parent="@style/Theme.Design.Light.BottomSheetDialog">
+    <style name="BaseBottomSheetDialog" parent="@style/Theme.MaterialComponents.Light.BottomSheetDialog">
         <item name="android:windowIsFloating">false</item>
+        <item name="colorAccent">@color/colorAccent</item>
         <item name="bottomSheetStyle">@style/BottomSheet</item>
     </style>
 
