@@ -174,12 +174,13 @@ class EditPoemScreenFragment : Fragment(), EditGenreBottomModalSheetFragment.Scr
         viewModel.sentences.observe(viewLifecycleOwner, Observer
         {
             if (it != null) {
+                sentences = it
+                adjustButtonVisibility()
                 if (it.isNotEmpty()) {
                     binding.floatingActionButtonInsertEditPoemScreenFragment.visibility =
                         View.VISIBLE
                     binding.linearLayoutSuggestionsEditPoemScreenFragment.visibility =
                         View.VISIBLE
-                    sentences = it
                     binding.tvSuggestionsEditPoemScreenFragment.text = sentences!![0].sentence
                     index = 0
                 } else {
@@ -196,20 +197,20 @@ class EditPoemScreenFragment : Fragment(), EditGenreBottomModalSheetFragment.Scr
             }
         })
 
-        if (sentences != null) {
-            adjustButtonVisibility()
+        binding.floatingActionButtonRightEditPoemScreenFragment.setOnClickListener {
+            if (index != (sentences!!.size - 1)) {
+                index++
+                binding.tvSuggestionsEditPoemScreenFragment.text = sentences!![index].sentence
+                adjustButtonVisibility()
+            }
         }
 
-        binding.floatingActionButtonRightEditPoemScreenFragment.setOnClickListener {
-            index++
-            binding.tvSuggestionsEditPoemScreenFragment.text = sentences!![index].sentence
-            adjustButtonVisibility()
-        }
-
-        binding.floatingActionButtonRightEditPoemScreenFragment.setOnClickListener {
-            index--
-            binding.tvSuggestionsEditPoemScreenFragment.text = sentences!![index].sentence
-            adjustButtonVisibility()
+        binding.floatingActionButtonLeftEditPoemScreenFragment.setOnClickListener {
+            if (index != 0) {
+                index--
+                binding.tvSuggestionsEditPoemScreenFragment.text = sentences!![index].sentence
+                adjustButtonVisibility()
+            }
         }
     }
 
