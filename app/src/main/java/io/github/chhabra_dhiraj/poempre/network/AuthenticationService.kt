@@ -24,7 +24,7 @@ interface AuthenticationService {
         @Field("lastname") lastName: String,
         @Field("imageUrl") imageUrl: String,
         @Field("password") password: String
-    ): RegisterApiResponse
+    ): Response<RegisterApiResponse>
 
     @FormUrlEncoded
     @POST("forgot")

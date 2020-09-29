@@ -7,6 +7,7 @@ interface UserService {
     @GET("users")
     suspend fun getUserAndPoems(): GetUserAndPoemApiResponse
 
+    @FormUrlEncoded
     @PATCH("users")
     suspend fun updateUser(
         @Field("email") email: String,

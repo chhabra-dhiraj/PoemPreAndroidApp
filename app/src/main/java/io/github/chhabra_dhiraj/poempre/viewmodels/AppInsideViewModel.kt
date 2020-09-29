@@ -9,6 +9,7 @@ import io.github.chhabra_dhiraj.poempre.repository.AuthenticationRepository
 import io.github.chhabra_dhiraj.poempre.repository.PoemRepository
 import io.github.chhabra_dhiraj.poempre.repository.SuggestionRepository
 import io.github.chhabra_dhiraj.poempre.repository.UserRepository
+import io.github.chhabra_dhiraj.poempre.utils.SharedPreferencesManager
 import io.github.chhabra_dhiraj.poempre.utils.SingleClickEvent
 import kotlinx.coroutines.*
 import retrofit2.HttpException
@@ -35,6 +36,16 @@ class AppInsideViewModel : ViewModel() {
     val isUpdateSuccessful: LiveData<SingleClickEvent<Boolean>>
         get() = _isUpdateSuccessful
 
+    private val _isUserDeleteSuccessful = MutableLiveData<SingleClickEvent<Boolean>>()
+
+    val isUserDeleteSuccessful: LiveData<SingleClickEvent<Boolean>>
+        get() = _isUserDeleteSuccessful
+
+    private val _isUserUpdateSuccessful = MutableLiveData<SingleClickEvent<Boolean>>()
+
+    val isUserUpdateSuccessful: LiveData<SingleClickEvent<Boolean>>
+        get() = _isUserUpdateSuccessful
+
     private val _isCreateSuccessful = MutableLiveData<SingleClickEvent<Boolean>>()
 
     val isCreateSuccessful: LiveData<SingleClickEvent<Boolean>>
@@ -44,6 +55,45 @@ class AppInsideViewModel : ViewModel() {
 
     val sentences: LiveData<List<Sentence>>
         get() = _sentences
+
+
+    fun deleteUser() {
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                val response = userRepository.deleteUser()
+                withContext(Dispatchers.Main) {
+                    SharedPreferencesManager.instance!!.clear()
+                    _isUserDeleteSuccessful.value = SingleClickEvent(true)
+                }
+            } catch (he: HttpException) {
+                withContext(Dispatchers.Main) {
+                    _isUserDeleteSuccessful.value = SingleClickEvent(false)
+                }
+            }
+        }
+    }
+
+
+    fun updateUser(email: String, firstname: String, lastname: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                val response = userRepository.updateUser(email, firstname, lastname)
+                withContext(Dispatchers.Main) {
+                    _isUserUpdateSuccessful.value = SingleClickEvent(true)
+
+                    SharedPreferencesManager.instance!!.apply {
+                        this.email = email
+                        this.firstName = firstname
+                        this.lastName = lastname
+                    }
+                }
+            } catch (he: HttpException) {
+                withContext(Dispatchers.Main) {
+                    _isUserUpdateSuccessful.value = SingleClickEvent(false)
+                }
+            }
+        }
+    }
 
     fun deletePoem(poemId: Int) {
         viewModelScope.launch(Dispatchers.IO) {

@@ -53,8 +53,6 @@ class AuthenticationViewModel : ViewModel() {
                 val loginApiResponse = authenticationRepository.login(email, password)
 
                 val sessionIdHeader = loginApiResponse.headers()["Set-Cookie"]?.substring(12)
-                Timber.e("sessionId: $sessionIdHeader")
-                Timber.e("firstName: ${loginApiResponse.body()?.user?.firstname}")
                 SharedPreferencesManager.instance!!.apply {
                     sessionId = sessionIdHeader
                     userId = loginApiResponse.body()?.user!!.userId
@@ -79,15 +77,16 @@ class AuthenticationViewModel : ViewModel() {
             try {
                 val registerApiResponse =
                     authenticationRepository.register(email, firstName, lastName, password)
+                val sessionIdHeader = registerApiResponse.headers()["Set-Cookie"]?.substring(12)
                 SharedPreferencesManager.instance!!.apply {
-                    sessionId = registerApiResponse.sessionId
-                    userId = registerApiResponse.user.userId
-                    email = registerApiResponse.user.email
-                    this.firstName = registerApiResponse.user.firstname
-                    this.lastName = registerApiResponse.user.lastname
+                    sessionId = sessionIdHeader
+                    userId = registerApiResponse.body()?.user!!.userId
+                    email = registerApiResponse.body()?.user?.email
+                    this.firstName = registerApiResponse.body()?.user?.firstname
+                    this.lastName = registerApiResponse.body()?.user?.lastname
                 }
                 withContext(Dispatchers.Main) {
-                    _isRegisterSuccessful.value = registerApiResponse
+                    _isRegisterSuccessful.value = registerApiResponse.body()
                 }
             } catch (he: HttpException) {
 
