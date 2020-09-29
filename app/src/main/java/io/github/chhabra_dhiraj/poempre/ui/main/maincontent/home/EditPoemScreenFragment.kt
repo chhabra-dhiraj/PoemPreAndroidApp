@@ -174,9 +174,9 @@ class EditPoemScreenFragment : Fragment(), EditGenreBottomModalSheetFragment.Scr
         viewModel.sentences.observe(viewLifecycleOwner, Observer
         {
             if (it != null) {
-                sentences = it
-                adjustButtonVisibility()
                 if (it.isNotEmpty()) {
+                    sentences = it
+                    adjustButtonVisibility()
                     binding.floatingActionButtonInsertEditPoemScreenFragment.visibility =
                         View.VISIBLE
                     binding.linearLayoutSuggestionsEditPoemScreenFragment.visibility =
