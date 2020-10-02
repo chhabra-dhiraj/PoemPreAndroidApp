@@ -48,10 +48,9 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_poem_home_screen_fragment"
-        android:layout_width="409dp"
-        android:layout_height="729dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginVertical="16dp"
         android:clipToPadding="false"
         android:visibility="gone"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

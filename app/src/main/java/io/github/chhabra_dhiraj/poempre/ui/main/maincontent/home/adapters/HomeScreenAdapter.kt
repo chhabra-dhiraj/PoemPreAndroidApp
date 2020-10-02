@@ -11,20 +11,13 @@ import androidx.recyclerview.widget.RecyclerView
 import io.github.chhabra_dhiraj.poempre.R
 import io.github.chhabra_dhiraj.poempre.domain.Poem
 import io.github.chhabra_dhiraj.poempre.ui.main.maincontent.home.HomeScreenFragmentDirections
+import timber.log.Timber
 
 class HomeScreenAdapter :
     ListAdapter<Poem, HomeScreenAdapter.ViewHolder>(SleepNightDiffCallback()) {
 
-    var data = listOf<Poem>()
-        set(value) {
-            field = value
-            notifyDataSetChanged()
-        }
-
-    override fun getItemCount() = data.size
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = data[position]
+        val item = getItem(position)
 
         holder.bind(item)
     }

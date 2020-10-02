@@ -44,7 +44,6 @@ class SplashScreenFragment : Fragment() {
                 // Check if internet connection is there or not
                 // if internet connection is there
                 // Call /users route
-                mainContentViewModel.getUserAndPoem()
                 // Check if slow internet connection issue
                 // or network timeout or other server problems
                 // if network timeout or other server problems

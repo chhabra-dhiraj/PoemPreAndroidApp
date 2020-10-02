@@ -13,8 +13,8 @@ data class Sentence(
 data class User(
     val userId: Int,
     val email: String,
-    val firstName: String,
-    val lastName: String,
+    val firstname: String,
+    val lastname: String,
     val imageUrl: String
 )
 

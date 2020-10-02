@@ -66,10 +66,14 @@ class ViewPoemScreenFragment : Fragment() {
         }
 
         viewModel.isDeleteSuccessful.observe(viewLifecycleOwner, Observer {
-            if (it) {
-                findNavController().popBackStack()
+            if (it.peekContent()) {
+                if (it.getContentIfNotHandled() != null) {
+                    findNavController().popBackStack()
+                }
             } else {
-                Snackbar.make(binding.root, "Server error", Snackbar.LENGTH_SHORT).show()
+                if (it.getContentIfNotHandled() != null) {
+                    Snackbar.make(binding.root, "Server error", Snackbar.LENGTH_SHORT).show()
+                }
             }
         })
     }

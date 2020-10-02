@@ -41,18 +41,23 @@ class HomeScreenFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val poems: List<Poem>? = mainContentViewModel.poems.value
-//        Timber.e(poems!![0].title)
-        if (poems == null || poems.isEmpty()) {
-            binding.progressBarHomeScreenFragment.visibility = View.GONE
-            binding.noPoemLayoutHomeScreenFragment.visibility = View.VISIBLE
-        } else {
-            // submit list to recycler view adapter
-            homeScreenAdapter.submitList(poems)
-            binding.noPoemLayoutHomeScreenFragment.visibility = View.GONE
-            binding.progressBarHomeScreenFragment.visibility = View.GONE
-            binding.rvPoemHomeScreenFragment.visibility = View.VISIBLE
-        }
+        mainContentViewModel.getUserAndPoem()
+        mainContentViewModel.poems.observe(viewLifecycleOwner, Observer {
+            val poems = it
+
+            if (poems == null || poems.isEmpty()) {
+                binding.progressBarHomeScreenFragment.visibility = View.GONE
+                binding.noPoemLayoutHomeScreenFragment.visibility = View.VISIBLE
+                binding.rvPoemHomeScreenFragment.visibility = View.GONE
+            } else {
+                // submit list to recycler view adapter
+                homeScreenAdapter.submitList(poems)
+                binding.noPoemLayoutHomeScreenFragment.visibility = View.GONE
+                binding.progressBarHomeScreenFragment.visibility = View.GONE
+                binding.rvPoemHomeScreenFragment.visibility = View.VISIBLE
+            }
+        })
+
     }
 
     override fun onDestroy() {

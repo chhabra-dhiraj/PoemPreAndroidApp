@@ -16,6 +16,7 @@
         android:layout_height="match_parent">
 
         <ScrollView
+            android:paddingBottom="50dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -32,6 +33,7 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="16dp"
+                    app:layout_constraintVertical_bias=".3"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -41,7 +43,7 @@
                         android:id="@+id/tiet_email_profile_screen_fragment"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="dhirajchhabra630@outlook.com" />
+                        tools:text="dhirajchhabra630@outlook.com" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -61,7 +63,7 @@
                         android:id="@+id/tiet_first_name_profile_screen_fragment"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Dhiraj" />
+                        tools:text="Dhiraj" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -80,7 +82,7 @@
                         android:id="@+id/tiet_last_name_profile_screen_fragment"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Chhabra" />
+                        tools:text="Chhabra" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 

@@ -10,6 +10,7 @@ import io.github.chhabra_dhiraj.poempre.repository.UserRepository
 import io.github.chhabra_dhiraj.poempre.utils.SharedPreferencesManager
 import kotlinx.coroutines.*
 import retrofit2.HttpException
+import timber.log.Timber
 
 class AuthenticationViewModel : ViewModel() {
 
@@ -50,12 +51,14 @@ class AuthenticationViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 val loginApiResponse = authenticationRepository.login(email, password)
+
+                val sessionIdHeader = loginApiResponse.headers()["Set-Cookie"]?.substring(12)
                 SharedPreferencesManager.instance!!.apply {
-                    sessionId = loginApiResponse.sessionId
-                    userId = loginApiResponse.user.userId
-                    email = loginApiResponse.user.email
-                    firstName = loginApiResponse.user.firstName
-                    lastName = loginApiResponse.user.lastName
+                    sessionId = sessionIdHeader
+                    userId = loginApiResponse.body()?.user!!.userId
+                    email = loginApiResponse.body()?.user!!.email
+                    firstName = loginApiResponse.body()?.user!!.firstname
+                    lastName = loginApiResponse.body()?.user!!.lastname
                 }
                 withContext(Dispatchers.Main) {
                     _isLoginSuccessful.value = true
@@ -74,15 +77,16 @@ class AuthenticationViewModel : ViewModel() {
             try {
                 val registerApiResponse =
                     authenticationRepository.register(email, firstName, lastName, password)
+                val sessionIdHeader = registerApiResponse.headers()["Set-Cookie"]?.substring(12)
                 SharedPreferencesManager.instance!!.apply {
-                    sessionId = registerApiResponse.sessionId
-                    userId = registerApiResponse.user.userId
-                    email = registerApiResponse.user.email
-                    this.firstName = registerApiResponse.user.firstName
-                    this.lastName = registerApiResponse.user.lastName
+                    sessionId = sessionIdHeader
+                    userId = registerApiResponse.body()?.user!!.userId
+                    email = registerApiResponse.body()?.user?.email
+                    this.firstName = registerApiResponse.body()?.user?.firstname
+                    this.lastName = registerApiResponse.body()?.user?.lastname
                 }
                 withContext(Dispatchers.Main) {
-                    _isRegisterSuccessful.value = registerApiResponse
+                    _isRegisterSuccessful.value = registerApiResponse.body()
                 }
             } catch (he: HttpException) {
 

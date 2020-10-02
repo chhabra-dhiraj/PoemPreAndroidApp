@@ -6,6 +6,7 @@ import okhttp3.Request
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import timber.log.Timber
 import java.util.concurrent.TimeUnit
 
 object Network {
@@ -16,7 +17,9 @@ object Network {
     }
 
     private val okHttpClient = OkHttpClient.Builder().apply {
-        connectTimeout(20, TimeUnit.SECONDS)
+        readTimeout(300, TimeUnit.SECONDS)
+        connectTimeout(300, TimeUnit.SECONDS)
+        writeTimeout(300, TimeUnit.SECONDS)
         addInterceptor(httpLoggingInterceptor)
         addInterceptor { chain ->
 
@@ -25,7 +28,7 @@ object Network {
             val request: Request = if (sessionId != null) {
                 chain.request()
                     .newBuilder()
-                    .addHeader("Cookie: ", "connect.sid=$sessionId")
+                    .addHeader("Cookie", "connect.sid=$sessionId")
                     .build()
             } else {
                 chain.request()
@@ -39,7 +42,7 @@ object Network {
 
     // Configure retrofit to parse JSON and use coroutines
     private val retrofit = Retrofit.Builder()
-        .baseUrl("http://192.168.0.11:5000/api/")
+        .baseUrl("http://192.168.0.6:5000/api/")
         .client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
