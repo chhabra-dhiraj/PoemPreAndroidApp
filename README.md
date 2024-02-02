@@ -1,5 +1,7 @@
 # PoemPre
-This is an Android application for Poem creation by a user with some suggestions given to him using Natural Language Processing on a Poems Dataset
+A poetry-writing Android App with a Node.js backend, powered by an NLP algorithm analyzing a dataset of 500 poems, which provides creative word suggestions to en- hance poetry writing. Kotlin, Android, Javascript, Node.js, Python, SQL.
+
+Backend can be found here - https://github.com/chhabra-dhiraj/PoetryPreAppBackend
 
 ## Screenshots -
 <table>
